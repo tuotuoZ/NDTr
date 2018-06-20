@@ -154,7 +154,7 @@ standard_CV <- R6Class("standard_CV",
         return(DECODING_RESULTS)
         
 
-        }  # end the run_decoding method
+        },  # end the run_decoding method
       
       resample_run_p = function(num){
         cores <- detectCores() - 1
@@ -165,7 +165,7 @@ standard_CV <- R6Class("standard_CV",
         
         parLapply(cl, 1:num,
                   run_decoding())
-      }
+      },
       
       resample_run = function(num){
         lapply(1:num, run_decoding())
