@@ -48,7 +48,7 @@ standard_CV <- R6Class("standard_CV",
                       
                       
       # methods
-      run_decoding = function(){
+      run_decoding = function(place_holder){
 
 
         data.source <- self$data.source
@@ -154,7 +154,22 @@ standard_CV <- R6Class("standard_CV",
         return(DECODING_RESULTS)
         
 
-  }  # end the run_decoding method
+        }  # end the run_decoding method
+      
+      resample_run_p = function(num){
+        cores <- detectCores() - 1
+        # See how many cores in your machine, then minus one
+        
+        cl <- makeCluster(cores)
+        # Initiate cluster
+        
+        parLapply(cl, 1:num,
+                  run_decoding())
+      }
+      
+      resample_run = function(num){
+        lapply(1:num, run_decoding())
+      }
 
 
   ),  # end the public methods
