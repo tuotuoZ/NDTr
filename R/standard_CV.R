@@ -172,7 +172,7 @@ standard_CV <- R6Class("standard_CV",
       },
       
       test_fun = function(a){
-        a * a
+        return(a * a)
       }
 
 
