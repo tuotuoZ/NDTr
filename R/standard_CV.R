@@ -169,6 +169,10 @@ standard_CV <- R6Class("standard_CV",
       
       resample_run = function(num){
         lapply(1:num, run_decoding())
+      },
+      
+      test_fun = function(a){
+        a * a
       }
 
 
